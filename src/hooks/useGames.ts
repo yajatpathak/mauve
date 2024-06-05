@@ -15,8 +15,13 @@ export interface Game {
   parent_platforms: { platform: Platform }[];
 }
 
-function useGames(selectedGenre: Genre | null) {
-  return useData<Game>("/games", { params: { genres: selectedGenre?.id } });
+function useGames(
+  selectedGenre: Genre | null,
+  selectedPlatform: Platform | null
+) {
+  return useData<Game>("/games", {
+    params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id },
+  });
 }
 
 export default useGames;

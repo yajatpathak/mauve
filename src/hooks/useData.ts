@@ -37,7 +37,7 @@ function useData<T>(endpoint: string, requestConfig?: AxiosRequestConfig) {
       controller.abort();
       clearTimeout(delayTimeout);
     };
-  }, [requestConfig?.params.genres]);
+  }, [requestConfig?.params.genres, requestConfig?.params.platforms]);
 
   return { data, error, isLoading };
 }
