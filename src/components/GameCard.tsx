@@ -9,11 +9,9 @@ interface GameCardProps {
 }
 
 function GameCard({ game }: GameCardProps) {
-  let cropUrl = getCroppedImageUrl(game.background_image);
-
   return (
     <Card height="auto" borderRadius={10} overflow="hidden">
-      {cropUrl === null ? <></> : <Image src={cropUrl} />}
+      <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
         <Heading fontSize="2xl">{game.name}</Heading>
         <HStack justifyContent="space-between">
