@@ -9,6 +9,9 @@ interface GameCardProps {
 }
 
 function GameCard({ game }: GameCardProps) {
+  //if platform list does not exist
+  if (!game.parent_platforms) game.parent_platforms = [];
+
   return (
     <Card borderRadius={10} overflow="hidden">
       <Image src={getCroppedImageUrl(game.background_image)} />
