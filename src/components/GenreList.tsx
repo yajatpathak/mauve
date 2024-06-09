@@ -20,7 +20,7 @@ function GenreList({ onGenreSelection, selectedGenre }: GenreListProps) {
   const { data, error, isLoading } = useGenres();
 
   if (error) {
-    return <Text>{error}</Text>;
+    return <Text>{error.message}</Text>;
   }
   if (isLoading) {
     return <Spinner />;
@@ -32,7 +32,7 @@ function GenreList({ onGenreSelection, selectedGenre }: GenreListProps) {
         Genres
       </Heading>
       <List>
-        {data.map((genre) => (
+        {data?.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
             <HStack>
               <Image

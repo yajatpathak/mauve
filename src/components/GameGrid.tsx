@@ -12,7 +12,7 @@ function GameGrid({ gameQuery }: GameGridProps) {
   const { data, error, isLoading } = useGames(gameQuery);
 
   if (error) {
-    return <Text>{error}</Text>;
+    return <Text>{error.message}</Text>;
   }
 
   if (isLoading) {
@@ -34,7 +34,7 @@ function GameGrid({ gameQuery }: GameGridProps) {
       padding="10px"
       spacing={6}
     >
-      {data.map((game) => (
+      {data?.map((game) => (
         <GameCard key={game.id} game={game} />
       ))}
     </SimpleGrid>

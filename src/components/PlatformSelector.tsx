@@ -22,7 +22,7 @@ function PlatformSelector({
   const { data, error } = usePlatforms();
 
   if (error) {
-    return <Text>{error}</Text>;
+    return <Text>{error.message}</Text>;
   }
 
   return (
@@ -31,7 +31,7 @@ function PlatformSelector({
         {selectedPlatform === null ? "Platforms" : selectedPlatform.name}
       </MenuButton>
       <MenuList>
-        {data.map((platform) => (
+        {data?.map((platform) => (
           <MenuItem
             onClick={() => onSelectPlatform(platform)}
             key={platform.id}
