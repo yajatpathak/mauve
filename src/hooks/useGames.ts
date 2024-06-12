@@ -25,6 +25,7 @@ function useGames() {
           ordering: gameQuery.sortOrder,
           search: gameQuery.searchText,
           page: pageParam,
+          exclude_additions: true,
         },
       });
     },

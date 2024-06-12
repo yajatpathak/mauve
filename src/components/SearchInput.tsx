@@ -22,7 +22,9 @@ function SearchInput() {
           placeholder="Search Games..."
           variant="filled"
           onChange={() => {
-            if (ref.current) setSearchText(ref.current.value);
+            if (ref.current)
+              if (ref.current.value.length < 3) setSearchText("");
+              else setSearchText(ref.current.value);
           }}
         />
       </InputGroup>
