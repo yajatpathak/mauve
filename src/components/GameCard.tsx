@@ -23,7 +23,7 @@ function GameCard({ game }: GameCardProps) {
       }}
     >
       <Link to={"/games/" + game.slug}>
-        <Image src={getCroppedImageUrl(game.background_image)} />
+        <Image src={getCroppedImageUrl(game.background_image)} width="100%" />
       </Link>
       <CardBody>
         <HStack justifyContent="space-between" marginBottom={3}>

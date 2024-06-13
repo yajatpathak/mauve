@@ -3,7 +3,11 @@ import { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
 import useGameQuery from "../gameQueryStore";
 
-function SearchInput() {
+interface SearchInputProp {
+  setLenErr: (value: boolean) => void;
+}
+
+function SearchInput({ setLenErr }: SearchInputProp) {
   const ref = useRef<HTMLInputElement>(null);
   const setSearchText = useGameQuery((s) => s.setSearchText);
 
@@ -12,6 +16,15 @@ function SearchInput() {
       style={{ width: "100%" }}
       onSubmit={(event) => {
         event.preventDefault();
+
+        if (!ref.current) return;
+        let value = ref.current.value.trim();
+
+        if (value.length < 3 && value.length !== 0) setLenErr(true);
+        else {
+          setLenErr(false);
+          setSearchText(value);
+        }
       }}
     >
       <InputGroup>
@@ -21,11 +34,6 @@ function SearchInput() {
           borderRadius={20}
           placeholder="Search Games..."
           variant="filled"
-          onChange={() => {
-            if (ref.current)
-              if (ref.current.value.length < 3) setSearchText("");
-              else setSearchText(ref.current.value);
-          }}
         />
       </InputGroup>
     </form>
