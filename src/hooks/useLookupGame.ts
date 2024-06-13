@@ -8,6 +8,7 @@ function useLookupGame(slug: string) {
   return useQuery({
     queryKey: ["game", slug],
     queryFn: () => apiClient.get(slug),
+    staleTime: 24 * 60 * 60 * 1000, // 24hr
   });
 }
 
