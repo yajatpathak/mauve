@@ -14,17 +14,17 @@ function NavBar() {
     <>
       <HStack padding="10px">
         <Link to="/" onClick={clearGameQuery}>
-          <Image src={logo} width="60px" />
+          <Image src={logo} boxSize="60px" objectFit="cover" />
         </Link>
         <SearchInput setLenErr={setLenErr} />
         <ColorModeSwitch />
       </HStack>
       {lenErr ? (
-        <Text marginX={100} color="brand.100">
+        <Text marginX={100} marginBottom={3} color="brand.100">
           *The search input should be atleast 3 characters.
         </Text>
       ) : (
-        <Box padding={3}></Box>
+        <Box padding="18px"></Box>
       )}
     </>
   );

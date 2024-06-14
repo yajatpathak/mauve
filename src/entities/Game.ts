@@ -1,8 +1,8 @@
-import { Publisher } from "./Publishers";
-import { Genre } from "./Genre";
-import { Platform } from "./Platform";
+import Publisher from "./Publishers";
+import Genre from "./Genre";
+import Platform from "./Platform";
 
-export interface Game {
+interface Game {
   id: number;
   name: string;
   slug: string;
@@ -14,3 +14,5 @@ export interface Game {
   publishers: Publisher[];
   esrb_rating: { name: string };
 }
+
+export default Game;

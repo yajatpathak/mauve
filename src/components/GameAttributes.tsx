@@ -1,5 +1,5 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
-import { Game } from "../entities/Game";
+import Game from "../entities/Game";
 import GameDefinition from "./GameDifinition";
 
 interface GameAttributesProp {
