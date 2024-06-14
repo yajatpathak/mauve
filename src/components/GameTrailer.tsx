@@ -13,7 +13,7 @@ function GameTrailer({ gameId }: GameTrailerProp) {
   const [currIndex, setCurrIndex] = useState(0);
 
   if (error) return <Text>Could not load trailer: {error.message}</Text>;
-  if (isLoading || !data || !data.results) return;
+  if (isLoading || !data || !data.results[0]) return;
 
   const max = data.results.length - 1;
   const currTrailer = data.results[currIndex];
@@ -47,9 +47,7 @@ function GameTrailer({ gameId }: GameTrailerProp) {
           icon={<GrNext />}
         />
       </HStack>
-      <Text align="center" marginY={3}>
-        {currTrailer.name}
-      </Text>
+      <Text marginY={3}>{currTrailer.name}</Text>
     </>
   );
 }
