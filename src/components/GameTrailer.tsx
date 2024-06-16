@@ -1,4 +1,4 @@
-import { HStack, IconButton, Text } from "@chakra-ui/react";
+import { Box, HStack, IconButton, Text } from "@chakra-ui/react";
 import useGameTrailers from "../hooks/useGameTrailers";
 import { useState } from "react";
 import { GrPrevious } from "react-icons/gr";
@@ -31,8 +31,7 @@ function GameTrailer({ gameId }: GameTrailerProp) {
           icon={<GrPrevious />}
         />
         <video
-          height="480"
-          width="640"
+          width="100%"
           src={currTrailer.data[480]}
           poster={currTrailer.preview}
           controls

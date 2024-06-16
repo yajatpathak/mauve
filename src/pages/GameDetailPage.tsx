@@ -25,7 +25,7 @@ function GameDetailPage() {
   if (!game) return <Text>Error: Could not fetch game.</Text>;
 
   return (
-    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
+    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5} margin="15px">
       <GridItem>
         <Heading>{game.name}</Heading>
         <Badge borderRadius={4} paddingY={1} paddingX={2} margin={2}>
