@@ -11,7 +11,7 @@ function useGames() {
   return useInfiniteQuery({
     queryKey: ["games", gameQuery],
     queryFn: ({ pageParam }) => {
-      return apiClient.getAll({
+      return apiClient.getAllInfinite({
         params: {
           genres: gameQuery.genreId,
           parent_platforms: gameQuery.platformId,

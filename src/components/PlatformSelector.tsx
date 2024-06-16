@@ -29,7 +29,7 @@ function PlatformSelector() {
         {selectedPlatform?.name || "Platforms"}
       </MenuButton>
       <MenuList>
-        {data?.results.map((platform) => (
+        {data?.map((platform) => (
           <MenuItem
             onClick={() => setPlatformId(platform.id)}
             key={platform.id}

@@ -21,7 +21,7 @@ function GameAttributes({ game }: GameAttributesProp) {
       </GameDefinition>
       <GameDefinition term="Publishers">
         {game.publishers?.map((dev) => (
-          <Text>{dev.name}</Text>
+          <Text key={dev.id}>{dev.name}</Text>
         ))}
       </GameDefinition>
     </SimpleGrid>
