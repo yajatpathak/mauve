@@ -3,10 +3,11 @@ import { ReactNode } from "react";
 
 interface GameDefinitionProps {
   term: string;
-  children: ReactNode | ReactNode[];
+  children: ReactNode[];
 }
 
 function GameDefinition({ term, children }: GameDefinitionProps) {
+  if (!children[0]) return;
   return (
     <Box marginY={5}>
       <Heading as="dt" fontSize="md" color="grey">

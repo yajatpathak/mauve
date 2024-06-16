@@ -20,7 +20,7 @@ function NavBar() {
         <ColorModeSwitch />
       </HStack>
       {lenErr ? (
-        <Text marginX={100} marginBottom={3} color="brand.100">
+        <Text marginX={100} marginBottom={3} colorScheme="purple">
           *The search input should be atleast 3 characters.
         </Text>
       ) : (
