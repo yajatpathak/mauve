@@ -13,6 +13,7 @@ import CriticScore from "../components/CriticScore";
 import GameAttributes from "../components/GameAttributes";
 import GameTrailer from "../components/GameTrailer";
 import GameScreenShots from "../components/GameScreenShots";
+import BannerContainer from "../components/BannerContainer";
 
 function GameDetailPage() {
   const { slug } = useParams();
@@ -25,21 +26,28 @@ function GameDetailPage() {
   if (!game) return <Text>Error: Could not fetch game.</Text>;
 
   return (
-    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5} margin="15px">
-      <GridItem>
-        <Heading>{game.name}</Heading>
-        <Badge borderRadius={4} paddingY={1} paddingX={2} margin={2}>
-          {game.esrb_rating ? game.esrb_rating.name : "No Rating"}
-        </Badge>
-        <CriticScore score={game.metacritic} />
-        <ExpandableText>{game.description_raw}</ExpandableText>
-        <GameAttributes game={game} />
-      </GridItem>
-      <GridItem>
-        <GameTrailer gameId={game.id} />
-        <GameScreenShots gamePk={game.id} />
-      </GridItem>
-    </SimpleGrid>
+    <BannerContainer banner={game.background_image}>
+      <SimpleGrid
+        marginX="15px"
+        marginBottom="15px"
+        columns={{ base: 1, md: 2 }}
+        spacing={5}
+      >
+        <GridItem>
+          <Heading>{game.name}</Heading>
+          <Badge borderRadius={4} paddingY={1} paddingX={2} margin={2}>
+            {game.esrb_rating ? game.esrb_rating.name : "Not Rated"}
+          </Badge>
+          <CriticScore score={game.metacritic} />
+          <ExpandableText>{game.description_raw}</ExpandableText>
+          <GameAttributes game={game} />
+        </GridItem>
+        <GridItem>
+          <GameTrailer gameId={game.id} />
+          <GameScreenShots gamePk={game.id} />
+        </GridItem>
+      </SimpleGrid>
+    </BannerContainer>
   );
 }
 

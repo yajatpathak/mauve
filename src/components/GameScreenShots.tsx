@@ -12,7 +12,7 @@ function GameScreenShots({ gamePk }: GameScreenShotsProps) {
   if (isLoading || !data || !data[0]) return;
 
   return (
-    <SimpleGrid columns={{ base: 1, sm: 2 }} spacing={2}>
+    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
       {data.map((img) => (
         <Image key={img.id} src={img.image} />
       ))}
