@@ -39,7 +39,7 @@ function GameDetailPage() {
       >
         <GridItem>
           <Heading>{game.name}</Heading>
-          <Badge borderRadius={4} paddingY={1} paddingX={2} margin={2}>
+          <Badge borderRadius={4} paddingY={1} paddingX={2} marginRight={2}>
             {game.esrb_rating ? game.esrb_rating.name : "Not Rated"}
           </Badge>
           <CriticScore score={game.metacritic} />
