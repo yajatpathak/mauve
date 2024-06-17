@@ -14,10 +14,12 @@ import GameAttributes from "../components/GameAttributes";
 import GameTrailer from "../components/GameTrailer";
 import GameScreenShots from "../components/GameScreenShots";
 import BannerContainer from "../components/BannerContainer";
+import useGameStore from "../gameStore";
 
 function GameDetailPage() {
   const { slug } = useParams();
   const { data: game, isLoading, error } = useLookupGame(slug!);
+  const setGame = useGameStore((s) => s.setGame);
 
   if (isLoading) return <Spinner />;
 
@@ -25,8 +27,10 @@ function GameDetailPage() {
 
   if (!game) return <Text>Error: Could not fetch game.</Text>;
 
+  setGame(game);
+
   return (
-    <BannerContainer banner={game.background_image}>
+    <BannerContainer>
       <SimpleGrid
         marginX="15px"
         marginBottom="15px"
@@ -39,12 +43,12 @@ function GameDetailPage() {
             {game.esrb_rating ? game.esrb_rating.name : "Not Rated"}
           </Badge>
           <CriticScore score={game.metacritic} />
-          <ExpandableText>{game.description_raw}</ExpandableText>
-          <GameAttributes game={game} />
+          <ExpandableText />
+          <GameAttributes />
         </GridItem>
         <GridItem>
-          <GameTrailer gameId={game.id} />
-          <GameScreenShots gamePk={game.id} />
+          <GameTrailer />
+          <GameScreenShots />
         </GridItem>
       </SimpleGrid>
     </BannerContainer>

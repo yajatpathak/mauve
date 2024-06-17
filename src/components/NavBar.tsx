@@ -5,15 +5,23 @@ import SearchInput from "./SearchInput";
 import { Link } from "react-router-dom";
 import useGameQuery from "../gameQueryStore";
 import { useState } from "react";
+import useGameStore from "../gameStore";
 
 function NavBar() {
   const clearGameQuery = useGameQuery((s) => s.clearGameQuery);
+  const clearGame = useGameStore((s) => s.clearGame);
   const [lenErr, setLenErr] = useState(false);
 
   return (
     <>
       <HStack padding="10px">
-        <Link to="/" onClick={clearGameQuery}>
+        <Link
+          to="/"
+          onClick={() => {
+            clearGameQuery();
+            clearGame();
+          }}
+        >
           <Image src={logo} boxSize="60px" objectFit="cover" />
         </Link>
         <SearchInput setLenErr={setLenErr} />

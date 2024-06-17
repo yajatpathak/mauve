@@ -1,12 +1,9 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
-import Game from "../entities/Game";
 import GameDefinition from "./GameDifinition";
+import useGameStore from "../gameStore";
 
-interface GameAttributesProp {
-  game: Game;
-}
-
-function GameAttributes({ game }: GameAttributesProp) {
+function GameAttributes() {
+  const game = useGameStore((s) => s.game);
   return (
     <SimpleGrid columns={{ base: 1, sm: 2 }} as="dl">
       <GameDefinition term="Platforms">

@@ -1,14 +1,12 @@
-import { Box, HStack, IconButton, Text } from "@chakra-ui/react";
+import { HStack, IconButton, Text } from "@chakra-ui/react";
 import useGameTrailers from "../hooks/useGameTrailers";
 import { useState } from "react";
 import { GrPrevious } from "react-icons/gr";
 import { GrNext } from "react-icons/gr";
+import useGameStore from "../gameStore";
 
-interface GameTrailerProp {
-  gameId: number;
-}
-
-function GameTrailer({ gameId }: GameTrailerProp) {
+function GameTrailer() {
+  const gameId = useGameStore((s) => s.game.id);
   const { data, error, isLoading } = useGameTrailers(gameId);
   const [currIndex, setCurrIndex] = useState(0);
 

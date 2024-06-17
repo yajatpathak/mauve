@@ -1,12 +1,10 @@
 import { Image, SimpleGrid, Text } from "@chakra-ui/react";
 import useGameScreenshots from "../hooks/useGameScreenshots";
+import useGameStore from "../gameStore";
 
-interface GameScreenShotsProps {
-  gamePk: number | string;
-}
-
-function GameScreenShots({ gamePk }: GameScreenShotsProps) {
-  const { data, isLoading, error } = useGameScreenshots(gamePk);
+function GameScreenShots() {
+  const gameId = useGameStore((s) => s.game.id);
+  const { data, isLoading, error } = useGameScreenshots(gameId);
 
   if (error) return <Text>Could not load ScreenShots: {error.message}</Text>;
   if (isLoading || !data || !data[0]) return;

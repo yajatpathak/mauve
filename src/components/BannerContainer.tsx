@@ -1,13 +1,14 @@
 import { Box, useColorMode } from "@chakra-ui/react";
 import { ReactNode } from "react";
+import useGameStore from "../gameStore";
 
 interface BannerContainerProps {
-  banner: string;
   children: ReactNode;
 }
 
-function BannerContainer({ banner, children }: BannerContainerProps) {
+function BannerContainer({ children }: BannerContainerProps) {
   const { colorMode } = useColorMode();
+  const banner = useGameStore((s) => s.game.background_image);
 
   let gradient;
   if (colorMode === "dark")
