@@ -9,7 +9,7 @@ function GameAttributes() {
   const { data: storeUrl } = useStoreURL(game.id);
 
   return (
-    <SimpleGrid columns={{ base: 1, sm: 2 }} as="dl">
+    <SimpleGrid columns={2} as="dl">
       <GameDefinition term="Platforms">
         {game.parent_platforms.map(({ platform }) => (
           <Text key={platform.id}>{platform.name}</Text>
@@ -27,7 +27,7 @@ function GameAttributes() {
       </GameDefinition>
       <GameDefinition term="Stores">
         {storeUrl?.map((store) => (
-          <StoreLink storeURL={store} />
+          <StoreLink key={store.id} storeURL={store} />
         ))}
       </GameDefinition>
     </SimpleGrid>

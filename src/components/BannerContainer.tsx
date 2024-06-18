@@ -13,10 +13,10 @@ function BannerContainer({ children }: BannerContainerProps) {
   let gradient;
   if (colorMode === "dark")
     gradient =
-      "linear(to-b, rgba(18,18,18,1.0),rgba(18,18,18,0.7), rgba(18,18,18,1.0))";
+      "linear(to-b, rgba(18,18,18,1.0),rgba(18,18,18,0.6), rgba(18,18,18,1.0))";
   else
     gradient =
-      "linear(to-b, rgba(255,255,255,1.0),rgba(255,255,255,0.7), rgba(255,255,255,1.0))";
+      "linear(to-b, rgba(255,255,255,1.0),rgba(255,255,255,0.6), rgba(255,255,255,1.0))";
 
   return (
     <Box

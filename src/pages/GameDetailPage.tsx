@@ -15,6 +15,7 @@ import GameTrailer from "../components/GameTrailer";
 import GameScreenShots from "../components/GameScreenShots";
 import BannerContainer from "../components/BannerContainer";
 import useGameStore from "../gameStore";
+import GameAdditions from "../components/GameAdditions";
 
 function GameDetailPage() {
   const { slug } = useParams();
@@ -34,7 +35,7 @@ function GameDetailPage() {
       <SimpleGrid
         marginX="15px"
         marginBottom="15px"
-        columns={{ base: 1, md: 2 }}
+        columns={{ base: 1, lg: 2 }}
         spacing={5}
       >
         <GridItem>
@@ -45,6 +46,9 @@ function GameDetailPage() {
           <CriticScore score={game.metacritic} />
           <ExpandableText />
           <GameAttributes />
+          <GameAdditions term="DLCs" />
+          <GameAdditions term="Parents" />
+          <GameAdditions term="More In Series" />
         </GridItem>
         <GridItem>
           <GameTrailer />
