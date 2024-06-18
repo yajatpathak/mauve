@@ -4,6 +4,7 @@ import {
   CardBody,
   HStack,
   Heading,
+  Skeleton,
   Text,
   useColorMode,
 } from "@chakra-ui/react";
@@ -32,7 +33,19 @@ function GameAdditions({ term }: GameAdditionsProps) {
     console.log(`GameAdditions(${term}): ${error.message}`);
     return;
   }
-  if (isLoading || !additions || !additions[0]) return;
+
+  if (isLoading) {
+    if (term === "DLCs") {
+      return (
+        <HStack spacing={4}>
+          <Skeleton borderRadius={10} width="240px" height="160px" />
+          <Skeleton borderRadius={10} width="240px" height="160px" />
+        </HStack>
+      );
+    } else return;
+  }
+
+  if (!additions || !additions[0]) return;
 
   //this is being used to give outline to text
   let textShadow;

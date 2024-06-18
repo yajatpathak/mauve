@@ -25,9 +25,13 @@ function BannerContainer({ children }: BannerContainerProps) {
       bgPosition="center"
       bgRepeat="no-repeat"
       bgSize="cover"
-      onLoad={() => setLoading(true)}
     >
-      <Box bgGradient={gradient} backdropFilter="auto" backdropBlur="1px">
+      <Box
+        bgGradient={gradient}
+        backdropFilter="auto"
+        backdropBlur="1px"
+        onLoad={() => setLoading(true)}
+      >
         {children}
       </Box>
     </Box>

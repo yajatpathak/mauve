@@ -1,4 +1,4 @@
-import { Box, Heading, Image, SimpleGrid } from "@chakra-ui/react";
+import { Box, Heading, Image, SimpleGrid, Skeleton } from "@chakra-ui/react";
 import useGameStore from "../gameStore";
 import useGameScreenshots from "../hooks/useGameScreenshots";
 import getCroppedImageUrl from "../services/image-url";
@@ -11,7 +11,16 @@ function GameScreenShots() {
     console.log("GameScreenShots: " + error.message);
     return;
   }
-  if (isLoading || !data || !data[0]) return;
+  if (isLoading) {
+    return (
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
+        <Skeleton width="fit" height="230px" />
+        <Skeleton width="fit" height="230px" />
+      </SimpleGrid>
+    );
+  }
+
+  if (!data || !data[0]) return;
 
   return (
     <>

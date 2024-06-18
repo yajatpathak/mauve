@@ -2,10 +2,12 @@ import { useParams } from "react-router-dom";
 import useLookupGame from "../hooks/useLookupGame";
 import {
   Badge,
+  Box,
   GridItem,
   Heading,
   SimpleGrid,
-  Spinner,
+  Skeleton,
+  SkeletonText,
   Text,
 } from "@chakra-ui/react";
 import ExpandableText from "../components/ExpandableText";
@@ -22,11 +24,22 @@ function GameDetailPage() {
   const { data: game, isLoading, error } = useLookupGame(slug!);
   const setGame = useGameStore((s) => s.setGame);
 
-  if (isLoading) return <Spinner />;
-
   if (error) {
     console.log("GameDetailPage: " + error.message);
     return <Text>{error.message}</Text>;
+  }
+  if (isLoading) {
+    return (
+      <Box marginX="15px">
+        <Skeleton height="40px" width="200px" />
+        <SkeletonText
+          spacing="3"
+          skeletonHeight="3"
+          width="430px"
+          marginTop={4}
+        />
+      </Box>
+    );
   }
 
   if (!game) {
