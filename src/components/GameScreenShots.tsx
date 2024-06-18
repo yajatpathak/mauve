@@ -1,4 +1,4 @@
-import { Image, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Heading, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import useGameScreenshots from "../hooks/useGameScreenshots";
 import useGameStore from "../gameStore";
 
@@ -10,11 +10,18 @@ function GameScreenShots() {
   if (isLoading || !data || !data[0]) return;
 
   return (
-    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
-      {data.map((img) => (
-        <Image key={img.id} src={img.image} />
-      ))}
-    </SimpleGrid>
+    <>
+      <Heading marginTop={5} fontSize="lg" color="grey">
+        Screenshots
+      </Heading>
+      <Box boxShadow="dark-lg" padding="5px">
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
+          {data.map((img) => (
+            <Image key={img.id} src={img.image} />
+          ))}
+        </SimpleGrid>
+      </Box>
+    </>
   );
 }
 

@@ -14,10 +14,15 @@ function StoreLink({ storeURL }: StoreLinkProps) {
 
   return (
     <a key={store?.id} href={storeURL.url} target="_blank">
-      <Button colorScheme="brand" marginTop={1} size="xs" fontWeight="bold">
+      <Button
+        colorScheme="brand"
+        marginBottom={3}
+        marginRight={2}
+        size="xs"
+        fontWeight="bold"
+      >
         {store?.name}
       </Button>
-      <br />
     </a>
   );
 }

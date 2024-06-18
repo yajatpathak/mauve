@@ -11,7 +11,7 @@ function GameDefinition({ term, children }: GameDefinitionProps) {
   if (Array.isArray(children) && !children[0]) return;
 
   return (
-    <Box marginY={5}>
+    <Box marginY={2}>
       <Heading as="dt" fontSize="md" color="grey">
         {term}
       </Heading>

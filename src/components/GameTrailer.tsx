@@ -1,4 +1,4 @@
-import { HStack, IconButton, Text } from "@chakra-ui/react";
+import { Box, HStack, IconButton, Text } from "@chakra-ui/react";
 import useGameTrailers from "../hooks/useGameTrailers";
 import { useState } from "react";
 import { GrPrevious } from "react-icons/gr";
@@ -17,7 +17,7 @@ function GameTrailer() {
   const currTrailer = data[currIndex];
 
   return (
-    <>
+    <Box boxShadow="dark-lg" padding="5px">
       <HStack>
         <IconButton
           colorScheme="brand"
@@ -44,10 +44,10 @@ function GameTrailer() {
           icon={<GrNext />}
         />
       </HStack>
-      <Text marginY={3} align="center">
+      <Text marginTop={3} align="center">
         {currTrailer.name}({currIndex + 1}/{max + 1})
       </Text>
-    </>
+    </Box>
   );
 }
 export default GameTrailer;
