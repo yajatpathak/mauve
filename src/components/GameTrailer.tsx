@@ -10,7 +10,10 @@ function GameTrailer() {
   const { data, error, isLoading } = useGameTrailers(gameId);
   const [currIndex, setCurrIndex] = useState(0);
 
-  if (error) return <Text>Could not load trailer: {error.message}</Text>;
+  if (error) {
+    console.log("GameTrailer: " + error.message);
+    return;
+  }
   if (isLoading || !data || !data[0]) return;
 
   const max = data.length - 1;

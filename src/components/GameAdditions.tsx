@@ -28,12 +28,10 @@ function GameAdditions({ term }: GameAdditionsProps) {
 
   const { colorMode } = useColorMode();
 
-  if (error)
-    return (
-      <Text>
-        Could not load {term}: {error.message}
-      </Text>
-    );
+  if (error) {
+    console.log(`GameAdditions(${term}): ${error.message}`);
+    return;
+  }
   if (isLoading || !additions || !additions[0]) return;
 
   //this is being used to give outline to text

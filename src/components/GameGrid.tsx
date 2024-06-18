@@ -9,7 +9,8 @@ function GameGrid() {
   const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();
 
   if (error) {
-    return <Text>{error.message}</Text>;
+    console.log("GameGrid: " + error.message);
+    return <Text>GameGrid: {error.message}</Text>;
   }
 
   if (isLoading) {

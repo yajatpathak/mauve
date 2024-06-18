@@ -1,5 +1,5 @@
 import { Box, useColorMode } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import useGameStore from "../gameStore";
 
 interface BannerContainerProps {
@@ -9,6 +9,7 @@ interface BannerContainerProps {
 function BannerContainer({ children }: BannerContainerProps) {
   const { colorMode } = useColorMode();
   const banner = useGameStore((s) => s.game.background_image);
+  const [isLoading, setLoading] = useState(false);
 
   let gradient;
   if (colorMode === "dark")
@@ -20,10 +21,11 @@ function BannerContainer({ children }: BannerContainerProps) {
 
   return (
     <Box
-      bgImage={banner}
+      bgImage={isLoading ? banner : undefined}
       bgPosition="center"
       bgRepeat="no-repeat"
       bgSize="cover"
+      onLoad={() => setLoading(true)}
     >
       <Box bgGradient={gradient} backdropFilter="auto" backdropBlur="1px">
         {children}

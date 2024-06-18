@@ -24,9 +24,15 @@ function GameDetailPage() {
 
   if (isLoading) return <Spinner />;
 
-  if (error) return <Text>{error.message}</Text>;
+  if (error) {
+    console.log("GameDetailPage: " + error.message);
+    return <Text>{error.message}</Text>;
+  }
 
-  if (!game) return <Text>Error: Could not fetch game.</Text>;
+  if (!game) {
+    console.log("GameDetailPage: Could not fetch game.");
+    return <Text>Error: Could not fetch game.</Text>;
+  }
 
   setGame(game);
 

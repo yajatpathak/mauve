@@ -1,11 +1,4 @@
-import {
-  Button,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Text,
-} from "@chakra-ui/react";
+import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import usePlatforms from "../hooks/usePlatforms";
 import useLookupPlatform from "../hooks/useLookupPlatform";
@@ -20,7 +13,8 @@ function PlatformSelector() {
   const setPlatformId = useGameQuery((s) => s.setPlatformId);
 
   if (error) {
-    return <Text>{error.message}</Text>;
+    console.log("Platform Selector: " + error.message);
+    return;
   }
 
   return (

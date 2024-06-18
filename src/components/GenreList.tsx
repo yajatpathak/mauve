@@ -6,7 +6,6 @@ import {
   List,
   ListItem,
   Spinner,
-  Text,
 } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
@@ -19,7 +18,8 @@ function GenreList() {
   const setGenreId = useGameQuery((s) => s.setGenreId);
 
   if (error) {
-    return <Text>{error.message}</Text>;
+    console.log("GenreList: " + error.message);
+    return;
   }
   if (isLoading) {
     return <Spinner />;
