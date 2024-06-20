@@ -1,8 +1,9 @@
-import { SimpleGrid, Text } from "@chakra-ui/react";
+import { Button, SimpleGrid, Text } from "@chakra-ui/react";
 import GameDefinition from "./GameDifinition";
-import useGameStore from "../gameStore";
+import useGameStore from "../stores/gameStore";
 import useStoreURL from "../hooks/useStoreURL";
 import StoreLink from "./StoreLink";
+import { Link } from "react-router-dom";
 
 function GameAttributes() {
   const game = useGameStore((s) => s.game);
@@ -31,11 +32,18 @@ function GameAttributes() {
         ))}
       </GameDefinition>
       <GameDefinition term="Publishers">
-        {game.publishers?.map((dev, index) => (
-          <Text display="inline" key={dev.id}>
-            {dev.name}
-            {index !== game.publishers.length - 1 ? " | " : ""}
-          </Text>
+        {game.publishers?.map((dev) => (
+          <Link to={"/publishers/" + dev.slug} key={dev.id}>
+            <Button
+              marginBottom={3}
+              marginRight={2}
+              size="xs"
+              fontWeight="bold"
+              colorScheme="brand"
+            >
+              {dev.name}
+            </Button>
+          </Link>
         ))}
       </GameDefinition>
       <GameDefinition term="Stores">

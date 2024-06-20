@@ -1,6 +1,6 @@
 import { Box, useColorMode } from "@chakra-ui/react";
 import { ReactNode, useState } from "react";
-import useGameStore from "../gameStore";
+import useGameStore from "../stores/gameStore";
 
 interface BannerContainerProps {
   children: ReactNode;

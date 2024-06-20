@@ -1,6 +1,6 @@
 import { Button } from "@chakra-ui/react";
 import StoreURL from "../entities/StoreURL";
-import useGameStore from "../gameStore";
+import useGameStore from "../stores/gameStore";
 
 interface StoreLinkProps {
   storeURL: StoreURL;

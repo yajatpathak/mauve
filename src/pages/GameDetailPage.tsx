@@ -16,7 +16,7 @@ import GameAttributes from "../components/GameAttributes";
 import GameTrailer from "../components/GameTrailer";
 import GameScreenShots from "../components/GameScreenShots";
 import BannerContainer from "../components/BannerContainer";
-import useGameStore from "../gameStore";
+import useGameStore from "../stores/gameStore";
 import GameAdditions from "../components/GameAdditions";
 
 function GameDetailPage() {

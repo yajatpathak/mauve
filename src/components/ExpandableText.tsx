@@ -1,6 +1,6 @@
 import { Button, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import useGameStore from "../gameStore";
+import useGameStore from "../stores/gameStore";
 
 function ExpandableText() {
   const [expanded, setExpanded] = useState(false);

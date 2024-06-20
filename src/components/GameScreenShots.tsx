@@ -1,5 +1,5 @@
 import { Box, Heading, Image, SimpleGrid, Skeleton } from "@chakra-ui/react";
-import useGameStore from "../gameStore";
+import useGameStore from "../stores/gameStore";
 import useGameScreenshots from "../hooks/useGameScreenshots";
 import getCroppedImageUrl from "../services/image-url";
 

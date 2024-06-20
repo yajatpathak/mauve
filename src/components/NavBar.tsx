@@ -3,13 +3,15 @@ import logo from "../assets/logo/logo.png";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 import { Link } from "react-router-dom";
-import useGameQuery from "../gameQueryStore";
+import useGameQuery from "../stores/gameQueryStore";
 import { useState } from "react";
-import useGameStore from "../gameStore";
+import useGameStore from "../stores/gameStore";
+import usePublisherStore from "../stores/publisherStore";
 
 function NavBar() {
   const clearGameQuery = useGameQuery((s) => s.clearGameQuery);
   const clearGame = useGameStore((s) => s.clearGame);
+  const clearPublisher = usePublisherStore((s) => s.clearPublisher);
   const [lenErr, setLenErr] = useState(false);
 
   return (
@@ -20,6 +22,7 @@ function NavBar() {
           onClick={() => {
             clearGameQuery();
             clearGame();
+            clearPublisher();
           }}
         >
           <Image src={logo} boxSize="60px" objectFit="cover" />

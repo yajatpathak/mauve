@@ -1,9 +1,10 @@
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { useRef } from "react";
 import { BsSearch } from "react-icons/bs";
-import useGameQuery from "../gameQueryStore";
+import useGameQuery from "../stores/gameQueryStore";
 import { useLocation, useNavigate } from "react-router-dom";
-import useGameStore from "../gameStore";
+import useGameStore from "../stores/gameStore";
+import usePublisherStore from "../stores/publisherStore";
 
 interface SearchInputProp {
   setLenErr: (value: boolean) => void;
@@ -18,6 +19,7 @@ function SearchInput({ setLenErr }: SearchInputProp) {
 
   const clearGameQuery = useGameQuery((s) => s.clearGameQuery);
   const clearGame = useGameStore((s) => s.clearGame);
+  const clearPublisher = usePublisherStore((s) => s.clearPublisher);
 
   return (
     <form
@@ -34,6 +36,7 @@ function SearchInput({ setLenErr }: SearchInputProp) {
             clearGameQuery();
             navigate("/");
             clearGame();
+            clearPublisher();
           }
           setLenErr(false);
           setSearchText(value);

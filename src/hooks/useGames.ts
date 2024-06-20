@@ -1,6 +1,6 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import APIClient from "../services/api-client";
-import useGameQuery from "../gameQueryStore";
+import useGameQuery from "../stores/gameQueryStore";
 import Game from "../entities/Game";
 
 const apiClient = new APIClient<Game>("/games");
@@ -26,7 +26,7 @@ function useGames() {
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
-    staleTime: 10 * 60 * 1000, // 10 min
+    staleTime: 24 * 60 * 60 * 1000, // 24hrs
   });
 }
 

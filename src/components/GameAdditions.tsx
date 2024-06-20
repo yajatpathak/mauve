@@ -8,7 +8,7 @@ import {
   Text,
   useColorMode,
 } from "@chakra-ui/react";
-import useGameStore from "../gameStore";
+import useGameStore from "../stores/gameStore";
 import useGameAdditions from "../hooks/useGameAdditions";
 import getCroppedImageUrl from "../services/image-url";
 import { Link } from "react-router-dom";

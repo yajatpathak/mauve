@@ -3,7 +3,7 @@ import useGameTrailers from "../hooks/useGameTrailers";
 import { useState } from "react";
 import { GrPrevious } from "react-icons/gr";
 import { GrNext } from "react-icons/gr";
-import useGameStore from "../gameStore";
+import useGameStore from "../stores/gameStore";
 
 function GameTrailer() {
   const gameId = useGameStore((s) => s.game.id);

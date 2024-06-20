@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import Game from "./entities/Game";
+import Game from "../entities/Game";
 
 interface GameStore {
   game: Game;
