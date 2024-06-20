@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
+import apiKey from "./api-key";
 
 interface FetchResponse<T> {
   count: number;
@@ -7,7 +8,10 @@ interface FetchResponse<T> {
 }
 
 const axiosInsanace = axios.create({
-  baseURL: `http://localhost:${import.meta.env.VITE_REACT_APP_PORT || 8000}`,
+  baseURL: "https://api.rawg.io/api",
+  params: {
+    key: apiKey,
+  },
 });
 
 class APIClient<T> {
