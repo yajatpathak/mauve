@@ -19,22 +19,24 @@ function PublisherBanner() {
       bgPosition="center"
       bgRepeat="no-repeat"
       bgSize="cover"
-      paddingBottom="25%"
       borderRadius={10}
       marginBottom={10}
+      overflow="hidden"
+      height={80}
     >
       <Box
         position="absolute"
         bgColor={overlay}
-        backdropFilter="auto"
-        backdropBlur="1px"
+        backdropFilter="blur(1px)"
         width="50%"
         height="100%"
         display="flex"
-        alignItems="center"
-        paddingX={3}
+        flexDirection="column"
+        justifyContent="flex-start"
+        overflow="auto"
+        padding={4}
       >
-        <Heading fontSize="4xl">{name}</Heading>
+        <Heading fontSize={{ base: "3xl", md: "4xl" }}>{name}</Heading>
         <ExpandableText>{desc}</ExpandableText>
       </Box>
     </Box>

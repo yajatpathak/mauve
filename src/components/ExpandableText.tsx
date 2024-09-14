@@ -11,6 +11,9 @@ function ExpandableText({ children }: ExpandableTextProps) {
 
   if (!children) return;
 
+  //Regular expression to remove html tags from the description
+  children = children.replace(/<\/?[^>]+>/gi, "");
+
   if (children.length <= limit) return <Text marginY={2}>{children}</Text>;
 
   const summary = expanded ? children : children.substring(0, limit) + "...";
