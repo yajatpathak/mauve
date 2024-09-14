@@ -17,6 +17,7 @@ function useGames() {
           parent_platforms: gameQuery.platformId,
           ordering: gameQuery.sortOrder,
           search: gameQuery.searchText,
+          publishers: gameQuery.publisherId,
           page: pageParam,
           exclude_additions: true,
         },
