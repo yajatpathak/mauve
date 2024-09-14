@@ -1,5 +1,6 @@
 import { Box, Heading, useColorMode } from "@chakra-ui/react";
 import usePublisherStore from "../stores/publisherStore";
+import ExpandableText from "./ExpandableText";
 
 function PublisherBanner() {
   const { colorMode } = useColorMode();
@@ -23,8 +24,6 @@ function PublisherBanner() {
       marginBottom={10}
     >
       <Box
-        right={0}
-        top={0}
         position="absolute"
         bgColor={overlay}
         backdropFilter="auto"
@@ -36,6 +35,7 @@ function PublisherBanner() {
         paddingX={3}
       >
         <Heading fontSize="4xl">{name}</Heading>
+        <ExpandableText>{desc}</ExpandableText>
       </Box>
     </Box>
   );

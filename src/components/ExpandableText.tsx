@@ -1,12 +1,13 @@
 import { Button, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import useGameStore from "../stores/gameStore";
 
-function ExpandableText() {
+interface ExpandableTextProps {
+  children: string;
+}
+
+function ExpandableText({ children }: ExpandableTextProps) {
   const [expanded, setExpanded] = useState(false);
   const limit = 300;
-
-  const children = useGameStore((s) => s.game.description_raw);
 
   if (!children) return;
 

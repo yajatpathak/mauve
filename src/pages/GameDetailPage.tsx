@@ -63,7 +63,7 @@ function GameDetailPage() {
             {game.esrb_rating ? game.esrb_rating.name : "Not Rated"}
           </Badge>
           <CriticScore score={game.metacritic} />
-          <ExpandableText />
+          <ExpandableText>{game.description_raw}</ExpandableText>
           <GameAttributes />
           <GameAdditions term="DLCs" />
           <GameAdditions term="Parents" />
