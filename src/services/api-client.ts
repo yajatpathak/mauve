@@ -1,5 +1,4 @@
 import axios, { AxiosRequestConfig } from "axios";
-import apiKey from "./api-key";
 
 interface FetchResponse<T> {
   count: number;
@@ -10,7 +9,7 @@ interface FetchResponse<T> {
 const axiosInsanace = axios.create({
   baseURL: "https://api.rawg.io/api",
   params: {
-    key: apiKey,
+    key: import.meta.env.VITE_RAWG_API_KEY,
   },
 });
 
