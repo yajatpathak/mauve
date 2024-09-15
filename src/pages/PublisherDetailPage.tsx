@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import useLookupPublisher from "../hooks/useLookupPublisher";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Skeleton, Text } from "@chakra-ui/react";
 import useGameQuery from "../stores/gameQueryStore";
 import GameGrid from "../components/GameGrid";
 import PublisherBanner from "../components/PublisherBanner";
@@ -17,7 +17,7 @@ function PublisherDetailPage() {
     return <Text>{error.message}</Text>;
   }
 
-  if (isLoading) return;
+  if (isLoading) return <Skeleton mx={10} height={80} />;
 
   if (!publisher) {
     console.log("PublisherDetailPage: Could not fetch publisher.");
